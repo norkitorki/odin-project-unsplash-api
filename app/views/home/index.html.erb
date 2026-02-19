@@ -1,0 +1,15 @@
+<%= form_with url: "/collection", method: :get do |form| %>
+  <%= form.label :collection_id, "Collection ID:" %>
+  <%= form.text_field :collection_id, required: true %>
+  <%= form.submit "Submit" %>
+<% end %>
+
+<% if @photos && !@photos.empty? %>
+  <h1>Collection <%= @collection_id %></h1>
+  <div class="photos">
+    <%= render partial: "home/photo", collection: @photos, as: :photo %>
+  </div>
+<% else %>
+  <h1>No collection fetched</h1>
+  <p>Use the form input above to view public photos of an unsplash collection.</p>
+<% end %>
