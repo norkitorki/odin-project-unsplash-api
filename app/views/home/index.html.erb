@@ -1,11 +1,11 @@
 <%= form_with url: "/collection", method: :get do |form| %>
-  <%= form.label :collection_id, "Collection ID:" %>
+  <%= form.label :collection_id, "Collection ID" %>
   <%= form.text_field :collection_id, required: true %>
   <%= form.submit "Submit" %>
 <% end %>
 
 <% if @photos && !@photos.empty? %>
-  <h1>Collection <%= @collection_id %></h1>
+  <h1>Collection <span><%= @collection_id %></span></h1>
   <div class="photos">
     <%= render partial: "home/photo", collection: @photos, as: :photo %>
   </div>
