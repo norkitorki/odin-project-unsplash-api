@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
   def show
-    api_key = Rails.application.credentials.unsplash_api_key
+    api_key = ENV["unsplash_key"]
     @collection_id = params[:collection_id]
 
     response = Faraday.get(

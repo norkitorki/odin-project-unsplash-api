@@ -66,3 +66,4 @@ group :test do
 end
 
 gem "faraday", "~> 2.14", ">= 2.14.1"
+gem "figaro"
