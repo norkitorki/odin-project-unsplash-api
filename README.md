@@ -1,24 +1,35 @@
-# README
+# Odin Project: Unsplash API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple photo viewer that retrieves public collection photos using the [Unsplash](https://unsplash.com/) API.
 
-Things you may want to cover:
+All svg icons were provided by [Pictogrammers](https://pictogrammers.com/).
 
-* Ruby version
+## Dependencies
 
-* System dependencies
+- [Ruby](https://www.ruby-lang.org/en/)
 
-* Configuration
+## Usage
 
-* Database creation
+```
+git clone https://github.com/norkitorki/odin-project-unsplash-api.git &&
+cd odin-project-unsplash-api &&
+bundle install &&
+bundle exec figaro install
+```
 
-* Database initialization
+[Create](https://unsplash.com/join) or [Sign](https://unsplash.com/login) in to your account and register a demo application.
 
-* How to run the test suite
+Open config/application.yml in your favorite text editor and add your unsplash access key:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+# Replace <YOUR_ACCESS_KEY> with your own valid access key
+unsplash_key: <YOUR_ACCESS_KEY>
+```
 
-* Deployment instructions
+Now you can run the application via:
 
-* ...
+```
+bin/dev
+```
+
+Open your preferred web browser and visit http://127.0.0.1:3000/ to use the application
