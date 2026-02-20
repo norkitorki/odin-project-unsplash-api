@@ -38,7 +38,8 @@ label {
   font-weight: bold;
 }
 
-input {
+input,
+button {
   padding: 0.4rem;
   border-radius: 4px;
 }
