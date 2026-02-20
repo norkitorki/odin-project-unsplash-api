@@ -11,7 +11,7 @@ body {
   padding: 0.75rem;
   border-radius: 4px;
   font-weight: bold;
-  margin: 0 auto 1rem auto
+  margin: 0 auto 1rem auto;
 }
 
 .notice {
@@ -74,7 +74,8 @@ button {
   transition: all 0.5s ease;
 }
 
-.photoActions svg:hover {
+.photoActions a:hover > svg,
+.photoActions a:focus > svg {
   transform: scale(1.2);
 }
 
@@ -83,10 +84,10 @@ button {
   opacity: 0.85;
 }
 
-.photoContainer:hover > .userLink,
-.photoContainer:focus > .userLink,
-.photoContainer:hover > .photoActions,
-.photoContainer:focus > .photoActions {
+.photoContainer:hover .userLink,
+.photoContainer:hover .photoActions,
+.photoContainer *:focus,
+.photoContainer *:has(*:focus) {
   opacity: 1;
 }
 
