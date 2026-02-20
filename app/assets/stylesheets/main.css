@@ -1,0 +1,109 @@
+body {
+  background: #011c31;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.flash {
+  width: max-content;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 0 auto 1rem auto
+}
+
+.notice {
+  background: #054e05;
+}
+
+.alert {
+  background: #7a0909;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+h1 > span {
+  font-size: 2rem;
+  color: #5899ee;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input {
+  padding: 0.4rem;
+  border-radius: 4px;
+}
+
+.photos {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.photoContainer {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+
+.photoContainer > img {
+  max-width: 100%;
+}
+
+.photoActions {
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.photoActions svg {
+  width: 25px;
+  height: 25px;
+  fill: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.photoActions svg:hover {
+  transform: scale(1.2);
+}
+
+.photoContainer:hover,
+.photoContainer:focus {
+  opacity: 0.85;
+}
+
+.photoContainer:hover > .userLink,
+.photoContainer:focus > .userLink,
+.photoContainer:hover > .photoActions,
+.photoContainer:focus > .photoActions {
+  opacity: 1;
+}
+
+.userLink {
+  position: absolute;
+  color: #ffffff;
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  bottom: 10px;
+  left: 10px;
+  transition: all 0.5s ease;
+}
+
+.userLink > img {
+  outline: 1px solid #ffffff38;
+  border-radius: 50%;
+}
