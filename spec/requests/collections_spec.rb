@@ -48,11 +48,16 @@ RSpec.describe "Collections", type: :request do
       let(:reason_phrase) { "Not Found" }
       let(:faraday_response) { double(status: 404, reason_phrase: reason_phrase) }
 
+      it "assigns flash alert" do
+        get collection_path, params: { collection_id: collection_id }
+
+        expect(flash[:alert]).to eq("Unable to retrieve collection: #{reason_phrase}")
+      end
+
       it "redirects to root_path" do
         get collection_path, params: { collection_id: collection_id }
 
         expect(response).to redirect_to(root_path)
-        expect(flash[:alert]).to eq("Unable to retrieve collection: #{reason_phrase}")
       end
     end
   end
