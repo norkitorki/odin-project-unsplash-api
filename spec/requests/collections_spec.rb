@@ -1,11 +1,14 @@
 require 'rails_helper'
 
+original_unsplash_key = ENV["unsplash_key"]
+
 RSpec.describe "Collections", type: :request do
   let(:faraday_response) { double(status: 200, body: "[{\"urls\":{\"small\":\"\"},\"links\":{\"html\":\"\",\"download\":\"\"},\"user\":{\"name\":\"\",\"links\":{\"html\":\"\"},\"profile_image\":{\"small\":\"\"}}}]") }
   let(:collection_id) { "v_gegYsM354323" }
 
   before(:all) { ENV["unsplash_key"] = "super_secret_key" }
   before(:each) { allow(Faraday).to receive(:get).and_return(faraday_response) }
+  after(:all) { ENV["unsplash_key"] = original_unsplash_key }
 
   describe "GET /collection" do
     it "calls Faraday.get to retrieve photos" do
