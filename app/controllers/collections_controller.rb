@@ -1,9 +1,8 @@
 class CollectionsController < ApplicationController
   def show
-    api_key = ENV["unsplash_key"]
     @collection_id = params[:collection_id]
 
-    response = get_response(api_key, @collection_id)
+    response = get_response
 
     if response.status == 200
       flash.now[:notice] = "Collection successfully retrieved"
@@ -16,12 +15,12 @@ class CollectionsController < ApplicationController
 
   private
 
-  def get_response(api_key, collection_id)
+  def get_response
     Faraday.get(
-      "https://api.unsplash.com/collections/#{collection_id}/photos",
+      "https://api.unsplash.com/collections/#{@collection_id}/photos",
       nil,
       {
-        Authorization: "Client-ID #{api_key}",
+        Authorization: "Client-ID #{ENV["unsplash_key"]}",
         "Content-Type": "application/json"
       }
     )
