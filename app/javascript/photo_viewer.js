@@ -35,14 +35,10 @@ if (photoData.length > 0) {
   };
 
   window.addEventListener('keydown', keyboardNavigation);
-
   imageViewerButton.addEventListener('click', openPhotoViewer);
-
   closeButton.addEventListener('click', closePhotoViewer);
   leftArrow.addEventListener('click', () => updatePhoto(-1));
   rightArrow.addEventListener('click', () => updatePhoto(1));
-
-  console.log(photoData);
 
   updatePhoto(0);
 }
