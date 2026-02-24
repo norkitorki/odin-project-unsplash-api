@@ -28,6 +28,12 @@ RSpec.describe "Collections", type: :request do
     end
 
     context "when photo collection is found" do
+      it "defines @photos_json" do
+        get collection_path, params: { collection_id: collection_id }
+
+        expect(assigns(:photos_json)).to eq(faraday_response.body.force_encoding("utf-8"))
+      end
+
       it "defines @photos" do
         get collection_path, params: { collection_id: collection_id }
 

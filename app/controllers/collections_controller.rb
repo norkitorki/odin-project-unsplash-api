@@ -6,6 +6,7 @@ class CollectionsController < ApplicationController
 
     if response.status == 200
       flash.now[:notice] = "Collection successfully retrieved"
+      @photos_json = response.body.force_encoding("utf-8")
       @photos = JSON.parse(response.body)
       render "home/index"
     else

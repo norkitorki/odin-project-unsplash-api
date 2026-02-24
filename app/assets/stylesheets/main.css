@@ -44,6 +44,10 @@ button {
   border-radius: 4px;
 }
 
+.imageViewerButton {
+  margin-bottom: 1rem;
+}
+
 .photos {
   max-width: 1400px;
   margin: 0 auto;

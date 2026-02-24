@@ -1,0 +1,26 @@
+<div class="photoViewer">
+  <div class="photoCounter"></div>
+  <button class="closeButton">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <title>close photo viewer</title>
+      <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+    </svg>
+  </button>
+  <button class="leftArrow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+      <title>previous photo</title>
+      <path d="M5 12V10H6V9H7V8H8V7H9V6H11V8H10V9H9V10H18V12H9V13H10V14H11V16H9V15H8V14H7V13H6V12" />
+    </svg>
+  </button>
+  <button class="rightArrow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+      <title>next photo</title>
+      <path d="M17 10V12H16V13H15V14H14V15H13V16H11V14H12V13H13V12H4V10H13V9H12V8H11V6H13V7H14V8H15V9H16V10" />
+    </svg>
+  </button>
+  <div class="photoFrame">
+    <img class="photoDisplay" />
+  </div>
+</div>
+
+<pre class="photoData"><%= json_data %></pre>

@@ -6,9 +6,11 @@
 
 <% if @photos && !@photos.empty? %>
   <h1>Collection <span><%= @collection_id %></span></h1>
+  <button class="imageViewerButton">Open Image Viewer</button>
   <div class="photos">
     <%= render partial: "home/photo", collection: @photos, as: :photo %>
   </div>
+  <%= render partial: "home/photo_viewer", locals: { json_data: @photos_json } %>
 <% else %>
   <h1>No collection retrieved</h1>
 <% end %>
