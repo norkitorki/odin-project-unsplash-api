@@ -12,7 +12,10 @@ if (photoData.length > 0) {
 
   let index = 0;
 
-  const openPhotoViewer = () => photoViewer.classList.add('viewerOpen');
+  const openPhotoViewer = () => {
+    photoViewer.classList.add('viewerOpen');
+    leftArrow.focus();
+  };
   const closePhotoViewer = () => photoViewer.classList.remove('viewerOpen');
 
   const updatePhoto = (indexChange) => {
@@ -33,6 +36,13 @@ if (photoData.length > 0) {
     else if (event.key === 'ArrowRight') updatePhoto(1);
     else if (event.key === 'Escape') closePhotoViewer();
   };
+
+  photoViewer.addEventListener('click', (e) => {
+    if (e.target !== photoViewer) return;
+
+    if (e.clientX < innerWidth * 0.25) updatePhoto(-1);
+    else if (e.clientX >= innerWidth * 0.75) updatePhoto(1);
+  });
 
   window.addEventListener('keydown', keyboardNavigation);
   imageViewerButton.addEventListener('click', openPhotoViewer);
