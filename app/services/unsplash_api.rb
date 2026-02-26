@@ -2,7 +2,7 @@ class UnsplashApi
   BASE_URL = "https://api.unsplash.com"
 
   def collection_photos(collection_id)
-    return "Please define access key in ENV['unsplash_key']" unless ENV["unsplash_key"]
+    return "Please define access key in ENV['unsplash_key']" unless key_defined?
 
     request("#{BASE_URL}/collections/#{collection_id}/photos")
   end
