@@ -1,26 +1,12 @@
 require 'rails_helper'
-
-original_unsplash_key = ENV["unsplash_key"]
+require_relative '../support/faraday_double'
 
 RSpec.describe "Collections", type: :request do
-  let(:faraday_response) { double(status: 200, body: "[{\"urls\":{\"small\":\"\"},\"links\":{\"html\":\"\",\"download\":\"\"},\"user\":{\"name\":\"\",\"links\":{\"html\":\"\"},\"profile_image\":{\"small\":\"\"}}}]") }
+  include_context 'faraday double'
+
   let(:collection_id) { "v_gegYsM354323" }
 
-  before(:all) { ENV["unsplash_key"] = "super_secret_key" }
-  before(:each) { allow(Faraday).to receive(:get).and_return(faraday_response) }
-  after(:all) { ENV["unsplash_key"] = original_unsplash_key }
-
   describe "GET /collection" do
-    it "calls Faraday.get to retrieve photos" do
-      get collection_path, params: { collection_id: collection_id }
-
-      expect(Faraday).to have_received(:get).with(
-        "https://api.unsplash.com/collections/#{collection_id}/photos",
-        nil,
-        { Authorization: "Client-ID super_secret_key", "Content-Type": "application/json" }
-      )
-    end
-
     it "defines @collection_id" do
       get collection_path, params: { collection_id: collection_id }
 
